@@ -1,3 +1,4 @@
+"use strict";
 // interface Details {
 //   name : string,
 //   age : number,
@@ -75,14 +76,54 @@
 // as const 
 // let userName = 'Sarath' as const;
 // userName = 'Sarath'
-var StatusType = {
-    PENDING: "pending",
-    COMPLETED: 'completed',
-    FAILED: 'failed'
-};
-//type StatusType = 'pending'|'completed'|'failed'|'';
-function getStatus(orderId, status) {
-    StatusType.COMPLETED = 'Hello';
-    console.log(orderId, '==', StatusType[status]);
+// const StatusType ={
+//   PENDING:"pending",
+//   COMPLETED:'completed',
+//   FAILED:'failed'
+// } as const;
+// //type StatusType = 'pending'|'completed'|'failed'|'';
+// function getStatus(orderId:string,status: keyof typeof StatusType){
+//   console.log(orderId,'==',StatusType[status])
+// }
+// getStatus("12345",'COMPLETED');
+// utility types
+// type Users = {
+//   name:string;
+//   age:number;
+//   salary:number;
+// }
+// const userDetails:Omit<Users,'salary'> = {
+//   name:"Sarath",
+//   age:20,
+//   salary:20000
+// }
+// type StatusType = 'pending'|'completed'|'failed';
+// const status: Exclude<StatusType,'pending'> = 'completed';
+// record
+// type Food = {
+//   KFC:string;
+//   PIZZA:string;
+//   CHICKEN:string;
+// }
+// type Food = Record<string,any>
+// const food:Food = {}
+// type Food = {
+//   [index:string]:any;
+// }
+// const food:Food = {
+//   PIZZA:"DOMINOS",
+// }
+//never
+function throwError(message) {
+    throw new Error(message);
 }
-getStatus("12345", 'COMPLETED');
+function logMessage(message) {
+    console.log(message);
+}
+const currentObj = {
+    name: 'Sarath',
+    getUserName(message) {
+        console.log(message);
+    },
+};
+currentObj.getUserName('ksksl');
