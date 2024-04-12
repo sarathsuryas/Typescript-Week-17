@@ -1,13 +1,15 @@
 "use strict";
 var readlineSync = require('readline-sync');
-let size = readlineSync.question('Enter the size of the arrays :');
-let array1 = [];
-let array2 = [];
-console.log("enter the values to the array1");
-for (let i = 0; i < size; i++) {
-    array1[i] = [];
-    for (let j = 0; j < size; j++) {
-        array1[i][j] = parseInt(readlineSync.question('value : '));
+let arr = [];
+let limit = parseInt(readlineSync.question("enter a limit : "));
+function sample(cb) {
+    for (let i = 0; i < limit; i++) {
+        arr.push(parseInt(readlineSync.question("enter values in index" + i + ' :')));
     }
+    console.log(callback(arr));
 }
-console.log(array1);
+function callback(arr) {
+    let sum = arr.reduce((a, b) => a + b, 0);
+    return sum % 2 === 0;
+}
+sample(callback);

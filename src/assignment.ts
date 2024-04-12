@@ -1,23 +1,24 @@
-var readlineSync = require('readline-sync')
+import { clearScreenDown } from "readline";
 
-let size:number = readlineSync.question('Enter the size of the arrays :');
-let array1:number[][] = []
-let array2:number[][] = []
- console.log("enter the values to the array 1")
-for(let i:number = 0; i < size; i++) {
-  array1[i] = []
-  for(let j:number = 0; j < size;j++) {
-        array1[i][j] = parseInt(readlineSync.question('value : '));
-  }
+class Animal {
+   makeSound():void{
+      console.log("some generic sound");
+   }  
+}
+class Dog extends Animal {
+   makeSound(): void {
+      console.log("Bow Bow")
+   }
 }
 
-console.log("enter the values to the array 2")
-for(let i:number = 0; i < size; i++) {
-  array1[i] = []
-  for(let j:number = 0; j < size;j++) {
-        array1[i][j] = parseInt(readlineSync.question('value : '));
-  }
+class Cat extends Animal {
+   makeSound(): void {
+      console.log("meow meow");
+      
+   }
 }
 
-console.log(array1);
-
+const dog = new Dog()
+const cat = new Cat()
+dog.makeSound()
+cat.makeSound()
